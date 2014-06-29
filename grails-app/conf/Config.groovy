@@ -75,7 +75,7 @@ log4j = {
     //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
     //}
 
-    error  'org.codehaus.groovy.grails.web.servlet',  //  controllers
+    warn 'org.codehaus.groovy.grails.web.servlet',  //  controllers
            'org.codehaus.groovy.grails.web.pages', //  GSP
            'org.codehaus.groovy.grails.web.sitemesh', //  layouts
            'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
@@ -87,6 +87,13 @@ log4j = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
     warn   'org.mortbay.log'
+	debug   'grails.plugins.springsecurity'
+	debug   'org.codehaus.groovy.grails.plugins.springsecurity'
+	debug   'org.springframework.security'
+	debug   'org.jasig.cas.client'
+	debug   'mx.mierda'
+	debug	'validation'
+	debug   'codeisdesign'
 }
 
 // Added by the Spring Security Core plugin:
@@ -109,6 +116,9 @@ grails.plugins.springsecurity.interceptUrlMap = [
 grails.plugins.springsecurity.cas.loginUri = '/login'
 grails.plugins.springsecurity.cas.serviceUrl = 'http://localhost:8081/sso-example-1/j_spring_cas_security_check'
 grails.plugins.springsecurity.cas.serverUrlPrefix = 'https://localhost:8443/cas'
-grails.plugins.springsecurity.cas.proxyCallbackUrl = 'http://localhost:8081/sso-example-1/secure/receptor'
-grails.plugins.springsecurity.cas.proxyReceptorUrl = '/secure/receptor'
+//grails.plugins.springsecurity.cas.proxyCallbackUrl = 'http://localhost:8081/sso-example-1/secure/receptor'
+//grails.plugins.springsecurity.cas.proxyReceptorUrl = '/secure/receptor'
 grails.plugins.springsecurity.logout.afterLogoutUrl = 'https://localhost:8443/cas/logout?url=http://localhost:8081/sso-example-1/'
+grails.plugins.springsecurity.cas.userAttribsFromCas = true
+grails.plugins.springsecurity.cas.authorityAttribNamesFromCas = ['authorities']
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'codeisdesign.example.sso.security.User'
